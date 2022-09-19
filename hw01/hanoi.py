@@ -14,11 +14,14 @@ class HanoiState:
     # isValid (Checking all discs)
     def isValid(self):
         # fill out! (1 point)
+        ## 전체 기둥들에 대해
         for i in range(self.noPegs):
+            ## 각 기둥들의 원판에 대해
             for j in range(self.heights[i] - 1):
+                ## 작은 원판이 큰 원판 아래에 있으면 False
                 if self.pegs[i][j] < self.pegs[i][j + 1]:
                     return False
-
+        ## 모든 원판이 잘 쌓여있으면 True
         return True
 
     # check two HanoiStates are identical
@@ -65,9 +68,10 @@ class HanoiState:
     # moveDisc from A to B (action=(fromPeg, toPeg))
     def moveDisc(self, action):
         # fill out! (0.5 point)
-        fp = action[0]
-        tp = action[1]
-        
+        fp = action[0]  ## from peg
+        tp = action[1]  ## to peg
+
+        ## tp 에 해당하는 list 에 fp 에 해당하는 list 의 top 추가
         self.pegs[tp].append(self.pegs[fp].pop())
         self.heights = self.getHeights()
         self.valid = self.isValid()
@@ -121,9 +125,11 @@ while len(open):
 
     # step 3
     for action in item.getPossibleActions():
+        ## 기존의 state 를 건들이지 않기 위함
         S1 = copy.deepcopy(item)  # fill out (0.5 points)
 
         S1.moveDisc(action)
+        ## 허용되지 않는 state 일 때, 다시 for 문으로 돌아감
         if not S1.valid:
             print("not valid!")
             continue
