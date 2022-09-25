@@ -1,4 +1,5 @@
-## https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/2-value-iteration
+##
+#https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/2-value-iteration
 
 # -*- coding: utf-8 -*-
 from environment import GraphicDisplay, Env
@@ -8,7 +9,7 @@ class ValueIteration:
         self.env = env
         # 2-d list for the value function
         self.value_table = [[0.0] * env.width for _ in range(env.height)]
-        self.discount_factor = 0.9
+        self.discount_factor = 0.8
 
     # get next value function table from the current value function table
     def value_iteration(self):

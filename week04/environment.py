@@ -1,5 +1,3 @@
-## https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/2-value-iteration
-
 import tkinter as tk
 import time
 import numpy as np
@@ -8,8 +6,8 @@ from PIL import ImageTk, Image
 
 PhotoImage = ImageTk.PhotoImage
 UNIT = 100  # pixels
-HEIGHT = 5  # grid height
-WIDTH = 5  # grid width
+HEIGHT = 3  # grid height
+WIDTH = 3  # grid width
 TRANSITION_PROB = 1
 POSSIBLE_ACTIONS = [0, 1, 2, 3]  # up, down, left, right
 ACTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # actions in coordinates
@@ -33,7 +31,6 @@ class GraphicDisplay(tk.Tk):
         self.canvas = self._build_canvas()
         self.text_reward(2, 2, "R : 1.0")
         self.text_reward(1, 2, "R : -1.0")
-        self.text_reward(2, 1, "R : -1.0")
 
     def _build_canvas(self):
         canvas = tk.Canvas(self, bg='white',
@@ -74,7 +71,6 @@ class GraphicDisplay(tk.Tk):
         # add img to canvas
         self.rectangle = canvas.create_image(50, 50, image=self.shapes[0])
         canvas.create_image(250, 150, image=self.shapes[1])
-        canvas.create_image(150, 250, image=self.shapes[1])
         canvas.create_image(250, 250, image=self.shapes[2])
 
         # pack all
@@ -232,7 +228,6 @@ class Env:
         self.possible_actions = POSSIBLE_ACTIONS
         self.reward[2][2] = 1  # reward 1 for circle
         self.reward[1][2] = -1  # reward -1 for triangle
-        self.reward[2][1] = -1  # reward -1 for triangle
         self.all_state = []
 
         for x in range(WIDTH):
