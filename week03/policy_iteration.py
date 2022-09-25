@@ -1,6 +1,7 @@
 ####
 #https://github.com/rlcode/reinforcement-learning/blob/master/1-grid-world/1-policy-iteration/policy_iteration.py
 
+
 # -*- coding: utf-8 -*-
 import random
 from environment import GraphicDisplay, Env
@@ -16,9 +17,10 @@ class PolicyIteration:
                                     for _ in range(env.height)]
         # setting terminal state
         self.policy_table[2][2] = []
-        self.discount_factor = 0.9
+        self.discount_factor = 0.8
 
     def policy_evaluation(self):
+        direction = ["up", "down", "left", "right"]
         next_value_table = [[0.00] * self.env.width
                                     for _ in range(self.env.height)]
 
@@ -36,6 +38,14 @@ class PolicyIteration:
                 next_value = self.get_value(next_state)
                 value += (self.get_policy(state)[action] *
                           (reward + self.discount_factor * next_value))
+                print("="*40)
+                print(state)
+                print(direction[action])
+                print("next_state", next_state)
+                print("reward", reward)
+                print("next_value", next_value)
+                print("value", value)
+                print("="*40)
 
             next_value_table[state[0]][state[1]] = round(value, 2)
 
