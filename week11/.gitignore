@@ -1,0 +1,8 @@
+.idea/
+*.png
+*.h5
+.DS_Store
+*.xml
+img/
+__pycache__/
+save_model/
