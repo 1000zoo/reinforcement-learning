@@ -7,6 +7,8 @@
     <list default="true" id="dcc65e79-5c11-4b58-a03e-8d25cc1eafe5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../hw08/cartpole_dqn.h5" beforeDir="false" afterPath="$PROJECT_DIR$/../hw08/cartpole_dqn.h5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw08/cartpole_dqn.png" beforeDir="false" afterPath="$PROJECT_DIR$/../hw08/cartpole_dqn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../week03/temp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../week04/environment.py" beforeDir="false" afterPath="$PROJECT_DIR$/../week04/environment.py" afterDir="false" />
     </list>
@@ -29,7 +31,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HhF0fGIqD5XSTTcvqM6xKuEwvg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,9 +41,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.DQN_train2">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.DQN_test">
     <configuration name="DQN_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="hw09" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,9 +136,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DQN_test" />
         <item itemvalue="Python.DQN_train2" />
         <item itemvalue="Python.DQN_train" />
-        <item itemvalue="Python.DQN_test" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -143,5 +153,16 @@
       <updated>1668729187007</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
