@@ -45,7 +45,7 @@ class DQNAgent:
             return np.argmax(q_value[0])
 
 if __name__ == "__main__":
-    EPISODES = 1
+    EPISODES = 10
 
     # CartPole-v1 환경, 최대 타임스텝 수가 500
     env = gym.make('CartPole-v1')

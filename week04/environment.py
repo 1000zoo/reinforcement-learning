@@ -1,3 +1,6 @@
+##
+#https://github.com/rlcode/reinforcement-learning/tree/master/1-grid-world/2-value-iteration
+
 import tkinter as tk
 import time
 import numpy as np

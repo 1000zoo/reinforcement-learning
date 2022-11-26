@@ -1,9 +1,9 @@
 import sys
 import gym
 import pylab
+import flappy_bird_gym
 import random
 import numpy as np
-import matplotlib.pyplot as ppl
 from collections import deque
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
@@ -48,7 +48,7 @@ class DQNAgent:
                         kernel_initializer='he_uniform'))
         model.add(Dense(self.action_size, activation='linear',
                         kernel_initializer='he_uniform'))
-        model.summary()
+        # model.summary()
         model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
         return model
 
@@ -108,25 +108,24 @@ if __name__ == "__main__":
     EPISODES = 300
 
     # CartPole-v1 환경, 최대 타임스텝 수가 500
-    env = gym.make('CartPole-v1')
+    env = flappy_bird_gym.make("FlappyBird-v0")
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
+    print("환경 불러오기 완료")
 
     # DQN 에이전트 생성
     agent = DQNAgent(state_size, action_size)
+    print("에이전트 생성 완료")
 
     scores, episodes = [], []
 
     for e in range(EPISODES+1):
+        print(e)
         done = False
         score = 0
         # env 초기화
         state = env.reset()
         state = np.reshape(state, [1, state_size])
-
-        vel = np.arange(-0.1, 0.1, step=0.02)
-        ang_vel = np.arange(-0.5, 0.5, step=0.1)
-        color = ['red', 'green']
 
         while not done:
             if agent.render:
@@ -151,7 +150,7 @@ if __name__ == "__main__":
 
             if done:
                 # 각 에피소드마다 타깃 모델을 모델의 가중치로 업데이트
-                #         agent.update_target_model()
+                agent.update_target_model()
 
                 score = score if score == 500 else score + 100
                 # 에피소드마다 학습 결과 출력
@@ -169,18 +168,3 @@ if __name__ == "__main__":
             agent.model.save_weights("./cartpole_dqn.h5")
             pylab.plot(episodes, scores, 'b')
             pylab.savefig("./cartpole_dqn.png")
-
-        if e % 10 == 0:
-            ppl.xlabel("velocity")
-            ppl.ylabel("angle velocity")
-            ppl.xlim(-0.11, 0.1)
-            ppl.ylim(-0.6, 0.5)
-            ppl.title("velocity - angle / Episode" + str(e))
-            for v in vel:
-                for av in ang_vel:
-                    temp = np.array((0, v, 0, av))
-                    temp = np.reshape(temp, [1, 4])
-                    ppl.scatter(v, av, c=color[agent.get_action(temp)])
-
-            ppl.savefig("policy_table/scatter_from_cart_episode" + str(e) + ".PNG")
-            ppl.close()
